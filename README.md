@@ -6,6 +6,8 @@
 ##### https://github.com/CS23-IntegrateProject-1
 ##### 2. My Faculty openhouse website using Nextjs & tailwind
 ##### https://github.com/ThisTine/sit-openhouse
+##### 3. Website for regis, score tracking of 3K sports for University
+##### https://gitlab.sunthewhat.com/web-3k
 
 <!--
 **Sunthewhat/Sunthewhat** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
