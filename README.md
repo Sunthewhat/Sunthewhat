@@ -6,7 +6,7 @@
 ##### https://github.com/CS23-IntegrateProject-1
 ##### 2. My Faculty openhouse website using Nextjs & tailwind
 ##### https://github.com/ThisTine/sit-openhouse
-##### 3. Website for regis, score tracking of 3K sports for University
+##### 3. Website for regis, score tracking of 3K sports for University using `Nodejs + mantine` frontend & `Bun + Hono` backend.
 ##### https://gitlab.sunthewhat.com/web-3k
 
 <!--
