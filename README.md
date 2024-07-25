@@ -9,6 +9,9 @@
 ##### 3. Website for regis, score tracking of 3K sports for University using `Nodejs + mantine` frontend & `Bun + Hono` backend.
 ##### https://gitlab.sunthewhat.com/web-3k
 
+##### POSN BUU Computer 2020
+##### Wit-Com RYW
+
 <!--
 **Sunthewhat/Sunthewhat** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
