@@ -1,36 +1,14 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import CustomWindows from '../components/customWindows/customWindows';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
-	const [screenW, setScreenW] = useState(window.innerWidth);
-	const [screenH, setScreenH] = useState(window.innerHeight);
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		const handleResize = () => {
-			setScreenW(window.innerWidth);
-			setScreenH(window.innerHeight);
-		};
-
-		window.addEventListener('resize', handleResize);
-
-		return () => window.removeEventListener('resize', handleResize);
-	});
-
-	const sWidth = (perc: string) => (screenW * parseInt(perc, 10)) / 100;
-	const sHeight = (perc: string) => (screenH * parseInt(perc, 10)) / 100;
 
 	const handleConfirm = () => {
 		if (!document.fullscreenElement) {
 			document.documentElement.requestFullscreen();
 		}
-		// else {
-		// 	if (document.exitFullscreen) {
-		// 		document.exitFullscreen();
-		// 	}
-		// }
 		navigate('/home');
 	};
 
@@ -50,11 +28,8 @@ const LandingPage = () => {
 				minScale={0.9}
 				title='Fullscreen Warning'
 				bgColor='#ECECEA'
-				// draggable={false}
 				defaultHeight={200}
 				defaultWidth={700}
-				top={sHeight('50') - 200 / 2 + 'px'}
-				left={sWidth('50') - 700 / 2 + 'px'}
 				canClose={false}
 				canMaximize={false}
 				canMinimize={false}

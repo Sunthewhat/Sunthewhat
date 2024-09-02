@@ -6,8 +6,6 @@ import { handleResizeMouseDownFunc } from './resizeFunction';
 type CustomWindowsProps = {
 	children: ReactNode;
 	title: string;
-	top?: string;
-	left?: string;
 	draggable?: boolean;
 	defaultHeight: number;
 	defaultWidth: number;
@@ -16,6 +14,7 @@ type CustomWindowsProps = {
 	canClose?: boolean;
 	canMinimize?: boolean;
 	canMaximize?: boolean;
+	handleCloseWindow?: () => void;
 };
 
 export type Position = {
@@ -31,8 +30,6 @@ export type WindowDimensions = {
 const CustomWindows: FC<CustomWindowsProps> = ({
 	children,
 	title,
-	top,
-	left,
 	defaultHeight,
 	defaultWidth,
 	draggable,
@@ -41,14 +38,30 @@ const CustomWindows: FC<CustomWindowsProps> = ({
 	canClose,
 	canMinimize,
 	canMaximize,
+	handleCloseWindow,
 }) => {
+	const [screenW, setScreenW] = useState(window.innerWidth);
+	const [screenH, setScreenH] = useState(window.innerHeight);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setScreenW(window.innerWidth);
+			setScreenH(window.innerHeight);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => window.removeEventListener('resize', handleResize);
+	});
+	const sWidth = (perc: string) => (screenW * parseInt(perc, 10)) / 100;
+	const sHeight = (perc: string) => (screenH * parseInt(perc, 10)) / 100;
 	const [dimension, setDimension] = useState<WindowDimensions>({
 		width: window.innerWidth,
 		height: window.innerHeight,
 	});
 	const [position, setPosition] = useState<Position>({
-		top: top ? top : '300px',
-		left: left ? left : '300px',
+		top: sHeight('50') - defaultHeight / 2 + 'px',
+		left: sWidth('50') - defaultWidth / 2 + 'px',
 	});
 	const actinButtonSize = '1.2vh';
 
@@ -79,6 +92,8 @@ const CustomWindows: FC<CustomWindowsProps> = ({
 
 	const handleClose = () => {
 		console.log('Close');
+
+		if (handleCloseWindow) handleCloseWindow();
 	};
 	const handleMinimize = () => {
 		console.log('Minimize');
