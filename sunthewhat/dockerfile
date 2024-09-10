@@ -1,4 +1,4 @@
-FROM oven/bun as base
+FROM oven/bun AS base
 
 WORKDIR /mnt
 
@@ -8,7 +8,7 @@ RUN bun install
 
 RUN bunx --bun vite build
 
-FROM thistine/simple-http-server as runner
+FROM thistine/simple-http-server AS runner
 
 WORKDIR /mnt
 
